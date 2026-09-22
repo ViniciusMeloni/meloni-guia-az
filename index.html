@@ -36,6 +36,7 @@
     --blue:#008CC8;
     --blue-deep:#00658F;
     --yellow:#FFCC29;
+    --own-tint:#F1F8FC;
     --hero-bg:#0A2E40;
     --hero-ink:#F2F7F9;
     --hero-ink-2:#9FC2D3;
@@ -57,7 +58,9 @@
       --blue:#35B4E8;
       --blue-deep:#7ED2F4;
       --yellow:#FFCC29;
-      --hero-bg:#071F2C;
+      --own-tint:#12303E;
+      --own-tint:#12303E;
+    --hero-bg:#071F2C;
       --hero-ink:#EAF3F7;
       --hero-ink-2:#8FB3C6;
       --hero-line:#153B4F;
@@ -93,6 +96,7 @@
   .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:24px;}
   .eyebrow{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin:0;}
   .sprite{position:absolute;width:0;height:0;overflow:hidden;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;background:var(--hero-bg);color:var(--hero-ink);overflow:hidden;border-bottom:3px solid var(--yellow);}
@@ -126,6 +130,40 @@
   .door h3{font-family:var(--display);font-weight:700;font-size:1.14rem;letter-spacing:-.015em;margin:10px 0 10px;}
   .door p{margin:0;font-size:.98rem;color:var(--ink-2);line-height:1.58;}
   .door .eyebrow{color:var(--blue-deep);}
+
+  /* ---------- COMPARATIVO DE PROCESSOS ---------- */
+  .compare{padding-block:8px 60px;display:grid;gap:22px;}
+  .compare .eyebrow{color:var(--blue-deep);}
+  .compare h2{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.05;letter-spacing:-.03em;margin:0;max-width:22ch;text-wrap:balance;}
+  .compare-lead{margin:0;font-size:clamp(1.02rem,1.8vw,1.18rem);line-height:1.55;max-width:62ch;color:var(--ink-2);}
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);}
+  .compare-table{border-collapse:collapse;width:100%;min-width:700px;background:var(--surface);}
+  .compare-table th,.compare-table td{border:1px solid var(--line);padding:16px 18px;text-align:left;vertical-align:top;}
+
+  /* cabeçalho em L: linha do topo e coluna dos rótulos */
+  .compare-table thead th{background:var(--surface-2);font-family:var(--display);font-weight:700;font-size:1.04rem;letter-spacing:-.015em;line-height:1.2;padding-block:20px;}
+  .compare-table tbody th{background:var(--surface-2);font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;width:1%;}
+  .compare-table td{font-size:.95rem;line-height:1.55;color:var(--ink-2);}
+
+  .th-topo{display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+  .compare-ico{width:28px;height:28px;color:var(--blue);fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+  .compare-table thead th em{display:block;font-family:var(--mono);font-style:normal;font-weight:600;font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--blue-deep);margin-top:7px;}
+
+  /* coluna do desidratador: a que interessa ao leitor */
+  .compare-table .own{background:var(--own-tint);color:var(--ink);}
+  .compare-table thead .own{border-top:4px solid var(--yellow);}
+
+  /* veredictos curtos (óleo, saudabilidade): marcador em vez de texto solto */
+  .marca{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;line-height:1.3;}
+  .marca::before{content:"";width:9px;height:9px;border:1.5px solid currentColor;flex:none;}
+  .marca-vazado{color:var(--blue-deep);}
+  .marca-cheio{color:var(--ink-2);}
+  .marca-cheio::before{background:currentColor;}
+
+  .scroll-hint{display:none;margin:0;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);}
+  @media (max-width:760px){.scroll-hint{display:block;}}
+
+  .compare-close{margin:0;font-size:1.06rem;line-height:1.6;max-width:64ch;color:var(--ink);}
 
   /* ---------- ÍNDICE FIXO ---------- */
   .index-bar{position:sticky;top:0;z-index:20;background:var(--ground);border-block:1px solid var(--line);}
@@ -229,6 +267,9 @@
   <symbol id="ic-molho" viewBox="0 0 24 24"><path d="M9.8 4.9h4.4v3.4l2.5 4.2c.3.5.5 1.1.5 1.7v3.3c0 1.2-1 2.2-2.2 2.2H8.9c-1.2 0-2.2-1-2.2-2.2v-3.3c0-.6.2-1.2.5-1.7l2.6-4.2z"/><path d="M7.2 14.4h9.6"/><path d="M9.8 4.9h4.4"/></symbol>
   <symbol id="ic-reciclar" viewBox="0 0 24 24"><path d="M5.4 12.2a6.6 6.6 0 0 1 11.2-4.8"/><path d="M16.8 4.3v3.4h-3.4"/><path d="M18.6 12.2a6.6 6.6 0 0 1-11.2 4.8"/><path d="M7.2 20.1v-3.4h3.4"/></symbol>
   <symbol id="ic-wrap" viewBox="0 0 24 24"><circle cx="12" cy="12.4" r="6.8"/><path d="M12 12.4a2.3 2.3 0 0 1 2.3-2.3 3.8 3.8 0 0 1 3.8 3.8"/><path d="M12 12.4a2.3 2.3 0 0 0-2.3-2.3 3.8 3.8 0 0 0-3.8 3.8"/></symbol>
+  <symbol id="ic-arquente" viewBox="0 0 24 24"><path d="M3.4 8.6h9.8a2.9 2.9 0 1 0-2.9-2.9"/><path d="M3.4 13.4h11.4a2.9 2.9 0 1 1-2.9 2.9"/><path d="M3.4 18.2h6.9"/></symbol>
+  <symbol id="ic-liofilizado" viewBox="0 0 24 24"><path d="M12 3.2v17.6M4.4 7.6l15.2 8.8M19.6 7.6 4.4 16.4"/><path d="m12 7.1-2.3-1.7M12 7.1l2.3-1.7M12 16.9l-2.3 1.7M12 16.9l2.3 1.7"/><path d="m6.6 9.7-2.8-.5M17.4 14.3l2.8.5M17.4 9.7l2.8-.5M6.6 14.3l-2.8.5"/></symbol>
+  <symbol id="ic-fritura" viewBox="0 0 24 24"><path d="M12 3.6c3.4 4.2 5.3 7.1 5.3 9.5a5.3 5.3 0 0 1-10.6 0c0-2.4 1.9-5.3 5.3-9.5z"/><path d="M9.4 14.1a2.7 2.7 0 0 0 2.1 2.6"/></symbol>
   <symbol id="ic-sopa" viewBox="0 0 24 24"><path d="M4.2 12.4h15.6c0 3.9-3.2 7.1-7.1 7.1h-1.4c-3.9 0-7.1-3.2-7.1-7.1z"/><path d="M9.2 9.6c0-1 1-1.2 1-2.2M12 9.6c0-1 1-1.2 1-2.2M14.8 9.6c0-1 1-1.2 1-2.2"/></symbol>
 </defs></svg>
 
@@ -270,6 +311,81 @@
       <p>Garanta mais sustentabilidade reduzindo o desperdício de alimentos e mantendo uma alimentação mais saudável.</p>
     </div>
   </div>
+</section>
+
+<section class="wrap compare" id="comparativo">
+  <p class="eyebrow">Antes de começar</p>
+  <h2>Desidratado, liofilizado ou frito a vácuo?</h2>
+  <p class="compare-lead">Os três tiram a água do alimento, mas o que chega à boca não é nem parecido.</p>
+
+  <div class="table-scroll">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th scope="col"><span class="sr-only">Processo</span></th>
+          <th scope="col" class="own">
+            <span class="th-topo">
+              <svg class="compare-ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-arquente"/></svg>
+              <span>Desidratador de ar quente<em>É o que a Meloni faz</em></span>
+            </span>
+          </th>
+          <th scope="col">
+            <span class="th-topo">
+              <svg class="compare-ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-liofilizado"/></svg>
+              <span>Liofilizado</span>
+            </span>
+          </th>
+          <th scope="col">
+            <span class="th-topo">
+              <svg class="compare-ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-fritura"/></svg>
+              <span>Fritura a vácuo</span>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Como funciona</th>
+          <td class="own">Ar quente circula devagar e evapora a água.</td>
+          <td>O alimento é congelado a temperatura extrema e a água vira vapor no vácuo.</td>
+          <td>Legumes fatiados são fritos em óleo sob vácuo — beterraba, cenoura, batata e batata-doce são os mais comuns.</td>
+        </tr>
+        <tr>
+          <th scope="row">Textura</th>
+          <td class="own">Varia de firme e mastigável a firme e densa, dependendo da fruta.</td>
+          <td>Leve e quebradiço. Desmancha na língua quase sem mastigar.</td>
+          <td>Firme e seco, quebra com estalo — a crocância do salgadinho de pacote.</td>
+        </tr>
+        <tr>
+          <th scope="row">Usa óleo?</th>
+          <td class="own"><span class="marca marca-vazado">Não</span></td>
+          <td><span class="marca marca-vazado">Não</span></td>
+          <td><span class="marca marca-cheio">Sim</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Saudabilidade</th>
+          <td class="own"><span class="marca marca-vazado">Saudável</span></td>
+          <td><span class="marca marca-vazado">Saudável</span></td>
+          <td><span class="marca marca-cheio">Menos saudável</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Tecnologia</th>
+          <td class="own">Simples e acessível</td>
+          <td>Exige alto investimento</td>
+          <td>Exige alto investimento</td>
+        </tr>
+        <tr>
+          <th scope="row">Onde se faz</th>
+          <td class="own">Na sua cozinha ou na sua produção</td>
+          <td>Só na indústria</td>
+          <td>Só na indústria</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="scroll-hint">Arraste a tabela para o lado &rarr;</p>
+
+  <p class="compare-close">Abaixo, de A a Z, tudo o que você pode produzir com um desidratador de ar quente.</p>
 </section>
 
 <nav class="index-bar" id="guia" aria-label="Índice de letras">
